@@ -33,9 +33,3 @@ buildNumber.properties
 ehthumbs.db
 Thumbs.db
 
-# Logs
-*.log
-
-# H2 Database
-*.h2.db
-*.lock.db

@@ -13,7 +13,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>1777</maven.compiler.target>
+        <maven.compiler.target>17</maven.compiler.target>
         <hibernate.version>5.4.12.Final</hibernate.version>
         <sqlite.version>3.36.0.3</sqlite.version>
         <sqlite.dialect.version>0.1.2</sqlite.dialect.version>
