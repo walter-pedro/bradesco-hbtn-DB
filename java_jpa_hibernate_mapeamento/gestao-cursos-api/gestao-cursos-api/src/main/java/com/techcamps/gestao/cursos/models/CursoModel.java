@@ -21,6 +21,7 @@ public class CursoModel {
             em.getTransaction().commit();
             System.out.println("Curso criado com sucesso !!!");
         } catch (Exception e) {
+            e.printStackTrace();
             em.close();
             System.err.println("Erro ao criar um curso !!!" + e.getMessage());
         } finally {

@@ -9,6 +9,8 @@ import com.techcamps.gestao.cursos.entities.Telefone;
 import com.techcamps.gestao.cursos.models.AlunoModel;
 import com.techcamps.gestao.cursos.models.CursoModel;
 
+import java.util.List;
+
 public class GestaoCursosMain {
 
     public static void main(String[] args) {
@@ -25,7 +27,10 @@ public class GestaoCursosMain {
         curso.setNome("Curso 1");
         curso.setSigla("C1");
         curso.setProfessor(professor);
+        professor.setCursos(List.of(curso));
         curso.setMaterialCurso(materialCurso);
+        materialCurso.setCurso(curso);
+
 
         Telefone telefone1 = new Telefone();
         Telefone telefone2 = new Telefone();

@@ -3,6 +3,7 @@ package com.techcamps.gestao.cursos.entities;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.CascadeType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,13 +21,13 @@ public class Curso {
     private String nome;
     private String sigla;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Professor professor;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private MaterialCurso materialCurso;
 
-    @OneToMany(mappedBy = "aluno")
+    @OneToMany(mappedBy = "curso")
     private List<Aluno> alunos;
 
     public Integer getId() {
