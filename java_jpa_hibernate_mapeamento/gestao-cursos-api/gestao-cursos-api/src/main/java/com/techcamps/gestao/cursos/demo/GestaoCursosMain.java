@@ -11,22 +11,36 @@ import com.techcamps.gestao.cursos.models.CursoModel;
 
 public class GestaoCursosMain {
 
-    Professor professor = new Professor();
-    MaterialCurso materialCurso = new MaterialCurso();
-    Curso curso = new Curso();
+    public static void main(String[] args) {
 
-    Telefone telefone1 = new Telefone();
-    Telefone telefone2 = new Telefone();
-    Endereco endereco1 = new Endereco();
-    Aluno aluno1 = new Aluno();
+        Professor professor = new Professor();
+        professor.setNomeCompleto("Professor 1");
+        professor.setMatricula("00001");
+        professor.setEmail("professor@escola.com");
 
-    Telefone telefone3 = new Telefone();
-    Telefone telefone4 = new Telefone();
-    Endereco endereco2 = new Endereco();
-    Endereco endereco3 = new Endereco();
-    Aluno aluno2 = new Aluno();
+        MaterialCurso materialCurso = new MaterialCurso();
+        materialCurso.setUrl("http://material.escola.com/curso/1");
 
-    CursoModel cursoModel = new CursoModel();
-    AlunoModel alunoModel = new AlunoModel();
+        Curso curso = new Curso();
+        curso.setNome("Curso 1");
+        curso.setSigla("C1");
+        curso.setProfessor(professor);
+        curso.setMaterialCurso(materialCurso);
 
+        Telefone telefone1 = new Telefone();
+        Telefone telefone2 = new Telefone();
+        Endereco endereco1 = new Endereco();
+        Aluno aluno1 = new Aluno();
+
+        Telefone telefone3 = new Telefone();
+        Telefone telefone4 = new Telefone();
+        Endereco endereco2 = new Endereco();
+        Endereco endereco3 = new Endereco();
+        Aluno aluno2 = new Aluno();
+
+        CursoModel cursoModel = new CursoModel();
+        AlunoModel alunoModel = new AlunoModel();
+
+        cursoModel.create(curso);
+    }
 }
