@@ -1,4 +1,4 @@
-package com.techcamps.gestao.cursos.models;
+package models;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,8 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import com.techcamps.gestao.cursos.entities.Aluno;
-import com.techcamps.gestao.cursos.entities.Curso;
+import entities.Aluno;
 
 public class AlunoModel {
 

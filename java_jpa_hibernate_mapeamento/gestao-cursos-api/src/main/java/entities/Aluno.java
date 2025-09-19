@@ -1,4 +1,4 @@
-package com.techcamps.gestao.cursos.entities;
+package entities;
 
 import java.util.Date;
 import java.util.List;

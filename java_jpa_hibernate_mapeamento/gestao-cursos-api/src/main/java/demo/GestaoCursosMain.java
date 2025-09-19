@@ -1,13 +1,13 @@
-package com.techcamps.gestao.cursos.demo;
+package demo;
 
-import com.techcamps.gestao.cursos.entities.Aluno;
-import com.techcamps.gestao.cursos.entities.Curso;
-import com.techcamps.gestao.cursos.entities.Endereco;
-import com.techcamps.gestao.cursos.entities.MaterialCurso;
-import com.techcamps.gestao.cursos.entities.Professor;
-import com.techcamps.gestao.cursos.entities.Telefone;
-import com.techcamps.gestao.cursos.models.AlunoModel;
-import com.techcamps.gestao.cursos.models.CursoModel;
+import entities.Aluno;
+import entities.Curso;
+import entities.Endereco;
+import entities.MaterialCurso;
+import entities.Professor;
+import entities.Telefone;
+import models.AlunoModel;
+import models.CursoModel;
 
 import java.util.Date;
 import java.util.List;
