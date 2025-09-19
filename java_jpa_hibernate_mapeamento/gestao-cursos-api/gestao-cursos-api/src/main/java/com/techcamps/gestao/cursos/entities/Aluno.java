@@ -2,12 +2,14 @@ package com.techcamps.gestao.cursos.entities;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -17,7 +19,7 @@ public class Aluno {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     private String nomeCompleto;
     private String matricula;
@@ -27,20 +29,20 @@ public class Aluno {
 
     private String email;
 
-    @OneToMany(mappedBy = "aluno")
-    private List<Endereco> enderecos;
+    @OneToMany(mappedBy = "aluno", fetch = FetchType.EAGER)
+    private Set<Endereco> enderecos;
 
-    @OneToMany(mappedBy = "aluno")
-    private List<Telefone> telefones;
+    @OneToMany(mappedBy = "aluno", fetch = FetchType.EAGER)
+    private Set<Telefone> telefones;
 
     @ManyToOne
     private Curso curso;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -77,19 +79,19 @@ public class Aluno {
         this.email = email;
     }
 
-    public List<Endereco> getEnderecos() {
+    public Set<Endereco> getEnderecos() {
         return enderecos;
     }
 
-    public void setEnderecos(List<Endereco> enderecos) {
+    public void setEnderecos(Set<Endereco> enderecos) {
         this.enderecos = enderecos;
     }
 
-    public List<Telefone> getTelefones() {
+    public Set<Telefone> getTelefones() {
         return telefones;
     }
 
-    public void setTelefones(List<Telefone> telefones) {
+    public void setTelefones(Set<Telefone> telefones) {
         this.telefones = telefones;
     }
 

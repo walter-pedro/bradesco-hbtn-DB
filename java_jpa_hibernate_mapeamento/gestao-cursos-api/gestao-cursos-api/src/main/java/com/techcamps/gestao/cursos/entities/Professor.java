@@ -2,18 +2,14 @@ package com.techcamps.gestao.cursos.entities;
 
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 @Entity
 public class Professor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     private String nomeCompleto;
     private String  matricula;
@@ -22,11 +18,11 @@ public class Professor {
     @OneToMany(mappedBy = "professor")
     List<Curso> cursos;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -64,8 +60,7 @@ public class Professor {
 
     @Override
     public String toString() {
-        return "Professor [id=" + id + ", nomeCompleto=" + nomeCompleto + ", matricula=" + matricula + ", email="
-                + email + ", cursos=" + cursos + "]";
+        return "Professor [id=" + id + ", nomeCompleto=" + nomeCompleto + ", matricula=" + matricula + ", email=" + email + "]";
     }    
 
 }

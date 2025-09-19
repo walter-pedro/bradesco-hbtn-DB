@@ -16,7 +16,7 @@ public class Curso {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     private String nome;
     private String sigla;
@@ -30,11 +30,11 @@ public class Curso {
     @OneToMany(mappedBy = "curso")
     private List<Aluno> alunos;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -80,8 +80,7 @@ public class Curso {
 
     @Override
     public String toString() {
-        return "Curso [id=" + id + ", nome=" + nome + ", sigla=" + sigla + ", professor=" + professor
-                + ", materialCurso=" + materialCurso + ", alunos=" + alunos + "]";
+        return "Curso [id=" + id + ", nome=" + nome + ", sigla=" + sigla + "]";
     }
     
 }

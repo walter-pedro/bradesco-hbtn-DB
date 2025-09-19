@@ -1,5 +1,6 @@
 package com.techcamps.gestao.cursos.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -15,18 +16,15 @@ public class CursoModel {
         EntityManager em = emf.createEntityManager();
 
         try {
-            System.out.println("Iniciando a transação");
             em.getTransaction().begin();
             em.persist(curso);
             em.getTransaction().commit();
             System.out.println("Curso criado com sucesso !!!");
         } catch (Exception e) {
-            e.printStackTrace();
             em.close();
             System.err.println("Erro ao criar um curso !!!" + e.getMessage());
         } finally {
             em.close();
-            System.out.println("Finalizando a transação");
         }
     }
 
@@ -34,15 +32,34 @@ public class CursoModel {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("gestao-cursos-jpa");
         EntityManager em = emf.createEntityManager();
 
-        return em.find(Curso.class, id);
+        Curso curso = new Curso();
+        try {
+            curso = em.find(Curso.class, id);
+        } catch (Exception e) {
+            em.close();
+            System.err.println("Erro ao buscar curso!!!" + e.getMessage());
+        } finally {
+            em.close();
+        }
+        return curso;
     }
 
-    public  List<Curso> findAll() {
+    public List<Curso> findAll() {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("gestao-cursos-jpa");
         EntityManager em = emf.createEntityManager();
 
-        return em.createQuery("SELECT c FROM Curso c", Curso.class).getResultList();
-        
+        List<Curso> cursos = new ArrayList<>();
+        try {
+            cursos = em.createQuery("SELECT c FROM Curso c", Curso.class).getResultList();
+        } catch (Exception e) {
+
+            em.close();
+            System.err.println("Erro ao buscar a lista de cursos!!!" + e.getMessage());
+        } finally {
+            em.close();
+        }
+
+        return cursos;
     }
 
     public void update(Curso curso) {
@@ -50,7 +67,6 @@ public class CursoModel {
         EntityManager em = emf.createEntityManager();
 
         try {
-            System.out.println("Iniciando a transação");
             em.getTransaction().begin();
             em.find(Curso.class, curso.getId());
             em.merge(curso);
@@ -61,7 +77,6 @@ public class CursoModel {
             System.err.println("Erro ao atualizar um curso !!!" + e.getMessage());
         } finally {
             em.close();
-            System.out.println("Finalizando a transação");
         }
     }
 
@@ -70,9 +85,8 @@ public class CursoModel {
         EntityManager em = emf.createEntityManager();
 
         try {
-            System.out.println("Iniciando a transação");
-            em.getTransaction().begin();            
-            em.find(Curso.class, curso.getId());
+            em.getTransaction().begin();
+            Curso cursoExcluir = em.find(Curso.class, curso.getId());
             em.remove(curso);
             em.getTransaction().commit();
             System.out.println("Curso excluido com sucesso !!!");
@@ -81,7 +95,6 @@ public class CursoModel {
             System.err.println("Erro ao exclur um curso !!!" + e.getMessage());
         } finally {
             em.close();
-            System.out.println("Finalizando a transação");
         }
     }
 }

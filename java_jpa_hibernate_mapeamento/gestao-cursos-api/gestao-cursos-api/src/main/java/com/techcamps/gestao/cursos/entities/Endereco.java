@@ -1,17 +1,13 @@
 package com.techcamps.gestao.cursos.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 public class Endereco {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     private String logradouro;
     private String endereco;
@@ -21,14 +17,14 @@ public class Endereco {
     private String estado;
     private Integer cep;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Aluno aluno;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
