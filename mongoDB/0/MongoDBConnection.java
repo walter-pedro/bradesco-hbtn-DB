@@ -9,8 +9,8 @@ public class MongoDBConnection {
 
 
     // Variáveis de configuração
-    private static final String USERNAME = "holberton";
-    private static final String PASSWORD = "holberton";
+    private static final String USERNAME = "";
+    private static final String PASSWORD = "";
     private static final String CLUSTER_URL = "cluster0.prb6exi.mongodb.net"; // Substitua pelo seu cluster se for diferente
     private static final String DATABASE_NAME = "Cluster0"; // Substitua pelo nome do seu banco de dados
 
