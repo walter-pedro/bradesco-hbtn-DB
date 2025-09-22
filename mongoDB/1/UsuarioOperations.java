@@ -22,9 +22,11 @@ public class UsuarioOperations {
         connection.alterarUsuario(usuarioBob);
         listaUsuarios(connection);
 
-        connection.deletararUsuario(usuarioCharlie);
+        connection.deletarUsuario(usuarioCharlie);
         listaUsuarios(connection);
 
+
+        connection.closeConnection();
     }
 
     private static void listaUsuarios(MongoDBConnection connection) {

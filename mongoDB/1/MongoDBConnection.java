@@ -86,7 +86,7 @@ public class MongoDBConnection {
         }
     }
 
-    public void deletararUsuario(Usuario usuario) {
+    public void deletarUsuario(Usuario usuario) {
         try {
             database.getCollection("usuarios").deleteOne(new Document().append("nome", usuario.getNome()));
         } catch (Exception e) {
