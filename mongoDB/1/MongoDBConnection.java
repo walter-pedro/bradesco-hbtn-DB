@@ -55,46 +55,6 @@ public class MongoDBConnection {
         }
     }
 
-    public void adicionar(List<Usuario> usuarios) {
-        List<Document> documents = usuarios.stream().map(u -> u.toDocument()).toList();
-        
-        try {
-            database.getCollection("usuarios").insertMany(documents);
-        } catch (Exception e) {
-            System.err.println("Erro ao inserir registros no MongoDB: " + e.getMessage());
-            e.printStackTrace();
-        }
-    }
-
-    public List<Usuario> listarUsuarios() {
-        List<Usuario> usuarios = new ArrayList<>();
-        try {
-            database.getCollection("usuarios").find().forEach(d -> usuarios.add(Usuario.fromDocument(d)));
-        } catch (Exception e) {
-            System.err.println("Erro ao buscar os registros no MongoDB: " + e.getMessage());
-            e.printStackTrace();
-        }
-        return usuarios;
-    }
-
-    public void alterarUsuario(Usuario usuario) {
-        try {
-            database.getCollection("usuarios").updateOne(new Document().append("nome", usuario.getNome()), usuario.toDocument());
-        } catch (Exception e) {
-            System.err.println("Erro ao atualziar o registro no MongoDB: " + e.getMessage());
-            e.printStackTrace();
-        }
-    }
-
-    public void deletarUsuario(Usuario usuario) {
-        try {
-            database.getCollection("usuarios").deleteOne(new Document().append("nome", usuario.getNome()));
-        } catch (Exception e) {
-            System.err.println("Erro ao atualziar o registro no MongoDB: " + e.getMessage());
-            e.printStackTrace();
-        }
-    }
-
     public MongoDatabase getDatabase() {
         return database;
     }
